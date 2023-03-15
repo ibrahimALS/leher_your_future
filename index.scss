@@ -1,0 +1,401 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+ $navbarLogoWidth : 346px;
+ $navbarLogoHeight : 101px;
+ $orange: #f4ab11;
+ $lighten-orange: #f3af1dd0;
+
+ * {
+   font-family: 'Roboto', sans-serif;
+ }
+
+ .navbar {
+   .nav-logo {
+     width: $navbarLogoWidth;
+     height: $navbarLogoHeight;
+   }
+
+   .nav-item {
+     .nav-link {
+       text-transform: uppercase;
+
+       &.active {
+         font-weight: bolder !important;
+       }
+     }
+   }
+ }
+
+ .btn-color-orange {
+   border-color: $orange ;
+   color: black;
+
+   &:hover {
+     color: #fff;
+     background-color: $orange;
+     border-color: $orange;
+   }
+ }
+
+ .rounded-5 {
+   border-radius: 20px;
+ }
+
+ .btn-orange {
+   background-color: $orange;
+   outline-color: $orange;
+   border-color: $orange;
+   box-shadow: none;
+
+   &:hover {
+     background-color: $lighten-orange;
+     border-color: $orange;
+   }
+ }
+
+ .border-color-orange {
+   border-color: $orange !important;
+ }
+
+ .border-radius-10px {
+   border-radius: 10px
+ }
+
+ .width-90px {
+   width: 90px;
+ }
+
+ html,
+ body {
+   margin: 0;
+   padding: 0;
+   overflow-x: hidden;
+ }
+
+
+ body {
+
+   &.home-page {
+     .section-1 {
+       background-image: url('./assets/background_1.png');
+       background-position: center;
+       background-repeat: no-repeat;
+       height: 554px;
+
+
+
+       h1 {
+         color: white;
+         text-transform: uppercase;
+         font-weight: bolder;
+         font-size: 30pt;
+         width: 229px;
+       }
+     }
+
+     .section-2 {
+       height: 554px;
+       max-width: 50rem;
+       margin: 0px auto;
+
+       h1 {
+         font-size: 55.654px;
+         font-family: "Roboto";
+         color: rgb(63, 62, 62);
+         text-transform: uppercase;
+         line-height: 1.078;
+         text-align: center;
+         margin-bottom: 20px;
+       }
+     }
+
+     //  .section-3 { }
+     .section-4 {
+       .main-image {
+
+         max-width: 100%;
+       }
+
+       ul {
+         max-width: 440px;
+         margin: 0 auto;
+         text-align: start;
+
+         //  list-style: none;
+         li::marker {
+           color: $orange;
+           font-size: 20px
+         }
+
+       }
+     }
+
+     .section-5 {
+       background-color: #34444b;
+
+       h1 {
+         font-size: 34px;
+         font-weight: bolder;
+         max-width: 388px;
+         text-transform: uppercase;
+         margin: 0 auto;
+       }
+     }
+
+     .section-6 {
+       background-color: #e7e7e6;
+
+       .copyright-and-links {
+         max-width: 470px;
+       }
+     }
+   }
+
+   &.lehrstellen-page {
+     .lehrstellen-image-main {
+       max-width: 100%;
+     }
+
+     .learnmore {
+       min-width: 200px;
+     }
+
+     .section-2 {
+       img {
+         max-width: 100%;
+       }
+     }
+
+     .section-3 {
+       img {
+         display: block;
+         margin: 0 auto;
+         max-width: 100%;
+       }
+     }
+
+     .section-4 {
+
+       background-color: #34444b;
+
+
+       h1 {
+         font-size: 34px;
+         font-weight: bolder;
+         max-width: 388px;
+         text-transform: uppercase;
+         margin: 0 auto;
+       }
+     }
+   }
+
+   &.tipps-page {
+     .lehrstellen-image-main {
+       max-width: 100%;
+     }
+
+     .learnmore {
+       min-width: 200px;
+     }
+
+     .section-1 {
+       img {
+         max-width: 100%;
+       }
+     }
+
+     .section-2 {
+       ul li {
+         list-style-image: url('assets/arrow.png');
+         padding: 20px;
+
+         h3 {
+           position: relative;
+           top: -7px;
+         }
+       }
+     }
+
+     .section-3 {
+       img {
+         display: block;
+         margin: 0 auto;
+         max-width: 100%;
+       }
+     }
+
+     .section-4 {
+
+       background-color: #34444b;
+
+
+       h1 {
+         font-size: 34px;
+         font-weight: bolder;
+         max-width: 388px;
+         text-transform: uppercase;
+         margin: 0 auto;
+       }
+     }
+   }
+
+   &.contactus-page {
+     .lehrstellen-image-main {
+       max-width: 100%;
+     }
+
+     .learnmore {
+       min-width: 200px;
+     }
+
+     .section-1 {
+       img {
+         max-width: 100%;
+       }
+     }
+
+     .section-2 {
+       ul {
+         max-width: 440px;
+         text-align: start;
+
+         //  list-style: none;
+         li::marker {
+           color: $orange;
+           font-size: 30px;
+         }
+
+         li {
+           p {
+             position: relative;
+             top: -3px;
+           }
+         }
+       }
+     }
+
+     .section-3 {
+       img {
+         display: block;
+         margin: 0 auto;
+         max-width: 100%;
+       }
+     }
+
+     .section-4 {
+
+       background-color: #34444b;
+
+
+       h1 {
+         font-size: 34px;
+         font-weight: bolder;
+         max-width: 388px;
+         text-transform: uppercase;
+         margin: 0 auto;
+       }
+     }
+   }
+
+   &.aboutus-page {
+     .aboutus-image-main {
+       width: 100%;
+     }
+
+     .learnmore {
+       min-width: 200px;
+     }
+
+     .section-2 {
+       img {
+         max-width: 100%;
+       }
+     }
+
+     .section-3 {
+       img {
+         display: block;
+         margin: 0 auto;
+         max-width: 100%;
+       }
+     }
+
+     .section-4 {
+
+       background-color: #34444b;
+
+
+       h1 {
+         font-size: 34px;
+         font-weight: bolder;
+         max-width: 388px;
+         text-transform: uppercase;
+         margin: 0 auto;
+       }
+     }
+   }
+
+   &.training-companies-page {
+     .training-companies-page-main-image {
+       max-width: 100%;
+     }
+
+     .learnmore {
+       min-width: 200px;
+     }
+
+     .section-2 {
+       img {
+         max-width: 100%;
+       }
+
+       .width-250px {
+         width: 250px;
+       }
+     }
+
+     .section-3 {
+       img {
+         display: block;
+         margin: 0 auto;
+         max-width: 100%;
+       }
+     }
+
+     .section-4 {
+
+       background-color: #34444b;
+
+
+       h1 {
+         font-size: 34px;
+         font-weight: bolder;
+         max-width: 388px;
+         text-transform: uppercase;
+         margin: 0 auto;
+       }
+     }
+   }
+
+ }
+
+
+
+ //  767
+ @media only screen and (max-width: 767px) {
+   .home-page {
+     .section-3 {
+       padding-top: 60px !important;
+
+     }
+   }
+ }
+
+ //  510
+ @media only screen and (max-width: 510px) {
+   .home-page {
+     .section-3 {
+       padding-top: 150px !important;
+     }
+   }
+ } 
