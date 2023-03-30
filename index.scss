@@ -336,6 +336,13 @@
    }
 
    &.training-companies-page {
+     .post-search-result-row img {
+       width: 250px;
+       height: 250px;
+       object-fit: cover;
+       border-radius: 10px;
+     }
+
      .training-companies-page-main-image {
        max-width: 100%;
      }
@@ -398,4 +405,4 @@
        padding-top: 150px !important;
      }
    }
- } 
+ }

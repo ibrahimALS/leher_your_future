@@ -59,10 +59,10 @@
   <section class="section-1  py-5 d-flex justify-content-center align-items-center ">
     <div class="container">
       <h1>find new apprenticeships every day.</h1>
-      <form class="row g-3">
+      <form class="row g-3" action="training_companies.html">
         <div class="col-md-6">
           <div class="input-group">
-            <input type="text" class="form-control border-0 shadow-none" placeholder="" value="Beruf">
+            <input type="text" name="skill" class="form-control border-0 shadow-none" placeholder="Beruf">
             <span class="input-group-text bg-white border-0" id="basic-addon2">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
                 viewBox="0 0 16 16">
@@ -74,20 +74,25 @@
         </div>
         <div class="col-12"></div>
         <div class="col-md-4">
-          <select id="inputState" class="form-select shadow-none">
-            <option selected>Bundesland</option>
-            <option>...</option>
+          <select name="radius" placeholder="Radius" class="form-select shadow-none">
+            <option value="">Radius</option>
+            <option value="25">25km</option>
+            <option value="50">50km</option>
+            <option value="100">100km</option>
+            <option value="250">250km</option>
           </select>
         </div>
         <div class="col-md-2">
-          <input type="text" value="Stadt" class="form-control shadow-none" id="inputZip">
+          <input type="text" name="city" placeholder="Stadt" class="form-control shadow-none">
         </div>
         <div class="col-12"></div>
         <div class="col-md-6">
-          <select id="inputState" class="form-select shadow-none">
-            <option selected>Fachbereich</option>
-            <option>...</option>
-          </select>
+          <input name="term" type="text" class="form-control shadow-none" placeholder="Fachbereich" />
+        </div>
+        <div class="col-12"></div>
+        <div class="col-md-6">
+          <input name="home" value="true" type="hidden" />
+          <button type="submit" class="btn btn-warning  text-uppercase w-100"><strong>Suche</strong></button>
         </div>
       </form>
     </div>
@@ -101,7 +106,8 @@
         App oder hier loslegen.</p>
       <div class="row my-5">
         <div class="col-12 col-md-6 mt-1">
-          <a href="#" class="btn btn-outline-primary btn-color-orange w-100 text-start border-2 shadow-none">Betrieb AND button All
+          <a href="#" class="btn btn-outline-primary btn-color-orange w-100 text-start border-2 shadow-none">Betrieb AND
+            button All
             places</a>
         </div>
         <div class="col-12 col-md-6 mt-1">

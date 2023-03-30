@@ -229,6 +229,13 @@ body.aboutus-page .section-4 h1 {
   text-transform: uppercase;
   margin: 0 auto;
 }
+body.training-companies-page .post-search-result-row img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
 body.training-companies-page .training-companies-page-main-image {
   max-width: 100%;
 }
