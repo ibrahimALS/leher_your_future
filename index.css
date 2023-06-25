@@ -3,8 +3,11 @@
   font-family: "Roboto", sans-serif;
 }
 
+p {
+  font-size: 1.4rem;
+}
+
 .navbar .nav-logo {
-  width: 346px;
   height: 101px;
 }
 .navbar .nav-item .nav-link {
@@ -236,14 +239,26 @@ body.training-companies-page .post-search-result-row img {
      object-fit: cover;
   border-radius: 10px;
 }
+@media only screen and (max-width: 650px) {
+  body.training-companies-page .post-search-result-row img {
+    width: 190px;
+  }
+}
+@media only screen and (max-width: 460px) {
+  body.training-companies-page .post-search-result-row img {
+    width: 100px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body.training-companies-page .post-search-result-row img {
+    width: 80px;
+  }
+}
 body.training-companies-page .training-companies-page-main-image {
   max-width: 100%;
 }
 body.training-companies-page .learnmore {
   min-width: 200px;
-}
-body.training-companies-page .section-2 img {
-  max-width: 100%;
 }
 body.training-companies-page .section-2 .width-250px {
   width: 250px;

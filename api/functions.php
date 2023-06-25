@@ -30,3 +30,51 @@ function haversineGreatCircleDistance(
     cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
   return $angle * $earthRadius;
 }
+
+function send_email_with_attachments($to, $subject, $message, $attachments = [])
+{
+  // Boundary string for MIME message
+  $boundary = md5(time());
+
+  // Headers for MIME message
+  // $headers = "From: $from\r\n";
+  // $headers .= "Reply-To: $replay\r\n";
+  // $headers .= "MIME-Version: 1.0\r\n";
+  $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
+
+  // Combine message with attachments
+  $body = "--$boundary\r\n";
+  $body .= "Content-Type: text/plain; charset=UTF-8\r\n";
+  $body .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+  $body .= $message . "\r\n\r\n";
+
+  // Loop through attachments and add to message
+  foreach ($attachments as $attachment_path) {
+    // Read attachment file
+    $file_content = file_get_contents($attachment_path);
+
+    // Get file extension of attachment
+    $extension = pathinfo($attachment_path, PATHINFO_EXTENSION);
+
+    // Determine MIME type of attachment based on its file extension
+    $mime_type = mime_content_type($attachment_path);
+
+    // Encode attachment file content in base64
+    $attachment_content = chunk_split(base64_encode($file_content));
+
+    // Attachment headers
+    $attachment_headers = "--$boundary\r\n";
+    $attachment_headers .= "Content-Type: $mime_type; name=\"" . basename($attachment_path) . "\"\r\n";
+    $attachment_headers .= "Content-Transfer-Encoding: base64\r\n";
+    $attachment_headers .= "Content-Disposition: attachment; filename=\"" . basename($attachment_path) . "\"\r\n\r\n";
+
+    // Combine attachment headers and content
+    $attachment = $attachment_headers . $attachment_content . "\r\n";
+
+    // Add attachment to message
+    $body .= $attachment;
+  }
+
+  // Send email
+  return mail($to, $subject, $body, $headers);
+}

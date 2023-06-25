@@ -222,10 +222,246 @@
     </div>
   </div>
 
+  <!-- apply for post job modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="apply-for-post-job-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="applyForPostJobModalLabel"><strong>Apply for post job</strong></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h1>Wie lauten deine Daten?</h1>
+            </div>
+            <div class="col-12">
+              <p><strong>Meine persönlichen Daten</strong></p>
+            </div>
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="text" name="Vorname" class="form-control" id="VornameInput" placeholder="name@example.com">
+                <label for="VornameInput">Vorname *</label>
+              </div>
+            </div>
+
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="text" name="Nochname" class="form-control" id="NochnameInput"
+                  placeholder="name@example.com">
+                <label for="NochnameInput">Nochname *</label>
+              </div>
+            </div>
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="text" name="Plaz" class="form-control" id="PlazInput" placeholder="name@example.com">
+                <label for="PlazInput">Plaz *</label>
+              </div>
+            </div>
+
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="text" name="Ort" class="form-control" id="OrtInput" placeholder="name@example.com">
+                <label for="OrtInput">Ort *</label>
+              </div>
+            </div>
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="email" name="E-Mail-Address" class="form-control" id="E-Mail-AddressInput"
+                  placeholder="name@example.com">
+                <label for="E-Mail-AddressInput">E-Mail-Address *</label>
+              </div>
+            </div>
+
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="number" name="telefonnummer" class="form-control" id="TelefonnummerInput"
+                  placeholder="name@example.com">
+                <label for="TelefonnummerInput">Telefonnummer *</label>
+              </div>
+            </div>
+            <div class="my-2 col-12 col-md-6">
+              <label for="apply-for-job-form-select-1"><strong>Wie möchtest du am liebsten kontaktiert
+                  werden?</strong></label>
+              <select id="apply-for-job-form-select-1" name="kontakt" class="form-select form-select-lg mb-3"
+                aria-label=".form-select-lg example">
+                <option value="data 1">data 1</option>
+                <option value="data 2">data 2</option>
+                <option value="data 3">data 3</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="my-2 col-12 col-md-6">
+                <p><strong>Kontaktdaten eines Elternteils</strong></p>
+              </div>
+            </div>
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="text" name="Name der Mutter oder des Vaters" class="form-control"
+                  id="NameFatherOrMatherInput" placeholder="name@example.com">
+                <label for="NameFatherOrMatherInput">Name der Mutter oder des Vaters</label>
+              </div>
+            </div>
+
+            <div class="my-2 col-12 col-md-6">
+              <div class="form-floating">
+                <input type="text" name="Telefonnummer der Mutter oder des Vaters" class="form-control"
+                  id="PhoneMatherOrFatherInput" placeholder="name@example.com">
+                <label for="PhoneMatherOrFatherInput">Telefonnummer der Mutter oder des Vaters</label>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class=" col-12 col-md-6">
+                <p><strong>Meine Unterlagen</strong></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6"></div>
+              <div class="my-2 col-12 col-md-6">
+                <label for="Lebenslauf" class="form-label">Lebenslauf (PDF - max. 5 MB)</label>
+                <input class="form-control apply-jobs-form-input-file" type="file" accept="application/pdf"
+                  name="lebenslauf" id="Lebenslauf">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6"></div>
+              <div class="my-2 col-12 col-md-6">
+                <label for="Motivationsschreiben" class="form-label">Motivationsschreiben (PDF - max. 5 MB)</label>
+                <input class="form-control apply-jobs-form-input-file" type="file" accept="application/pdf"
+                  name="motivationsschreiben" id="Motivationsschreiben">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6"></div>
+              <div class="my-2 col-12 col-md-6">
+                <label for="Zeugnisse" class="form-label">Zeugnisse (PDF - max. 5 MB)</label>
+                <input class="form-control apply-jobs-form-input-file" type="file" accept="application/pdf"
+                  name="zeugnisse" id="Zeugnisse">
+              </div>
+            </div>
+            <div class="row">
+              <div class="my-2">
+                <p><strong>Was möchtest du tun?</strong></p>
+                <div class="form-check">
+                  <input checked class="form-check-input" value="Bewerben" type="radio" name="Was möchtest du tun?" id="was-möchtest-du-tun1">
+                  <label class="form-check-label" for="was-möchtest-du-tun1">
+                    Bewerben
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="Schnuppern" type="radio" name="Was möchtest du tun?" id="was-möchtest-du-tun2"  >
+                  <label class="form-check-label" for="was-möchtest-du-tun2">
+                    Schnuppern
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="my-2">
+                <p><strong>Wie alt bist du?</strong></p>
+                <div class="form-check">
+                  <input checked class="form-check-input" value="14-15 Jahre" type="radio" name="Wie alt bist du?" id="age1">
+                  <label class="form-check-label" for="age1">
+                    14-15 Jahre
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="16-17 Jahre" type="radio" name="Wie alt bist du?" id="age2">
+                  <label class="form-check-label" for="age2">
+                    16-17 Jahre
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="18-20 Jahre" type="radio" name="Wie alt bist du?" id="age3">
+                  <label class="form-check-label" for="age3">
+                    18-20 Jahre
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="20+ Jahre" type="radio" name="Wie alt bist du?" id="age4">
+                  <label class="form-check-label" for="age4">
+                    20+ Jahre
+                  </label>
+                </div> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="my-2">
+                <p><strong>Wie ist deine Ausbildungssituation?</strong></p>
+                <div class="form-check">
+                  <input checked class="form-check-input" value="Mittelschule" type="radio" name="Wie ist deine Ausbildungssituation?" id="t1">
+                  <label class="form-check-label" for="t1">
+                    Mittelschule
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="Poly" type="radio" name="Wie ist deine Ausbildungssituation?" id="t2">
+                  <label class="form-check-label" for="t2">
+                    Poly
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="HAK, HBLW, HAS, BAFEP" type="radio" name="Wie ist deine Ausbildungssituation?" id="t3">
+                  <label class="form-check-label" for="t3">
+                    HAK, HBLW, HAS, BAFEP
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="Gymnasium" type="radio" name="Wie ist deine Ausbildungssituation?" id="t4">
+                  <label class="form-check-label" for="t4">
+                    Gymnasium
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="HTL" type="radio" name="Wie ist deine Ausbildungssituation?" id="t5">
+                  <label class="form-check-label" for="t5">
+                    HTL
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" value="Sonstige" type="radio" name="Wie ist deine Ausbildungssituation?" id="t6">
+                  <label class="form-check-label" for="t6">
+                    Sonstige
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="my-3 col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  kch bin mit der Datenschutzvereinbarung der ILB OG einverstanden. <a href="#"
+                    class="text-dark">Datenschutz *</a>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close <svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+              viewBox="0 0 16 16">
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg></button>
+          <button type="button" class="btn btn-success" id="apply-now">Apply Now <svg xmlns="http://www.w3.org/2000/svg"
+              width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+              <path
+                d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+            </svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--  Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+    integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="scripts/training_companies.js"></script>
 
 

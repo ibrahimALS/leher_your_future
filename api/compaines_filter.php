@@ -1,5 +1,8 @@
 <?php
 require_once(__DIR__ . '/dbcon.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
+
+// ===========================
 $city = isset($_GET['city']) ? trim($_GET['city']) : '';
 $cname = isset($_GET['cname']) ? trim($_GET['cname']) : '';
 $term = isset($_GET['term']) ? trim($_GET['term']) : '';
@@ -10,15 +13,14 @@ $user_lat = isset($_GET['user_lat']) ? trim($_GET['user_lat']) : 0;
 $user_lng = isset($_GET['user_lng']) ? trim($_GET['user_lng']) : 0;
 if (($user_lat == 0 or $user_lat == '') or ($user_lng == 0 or $user_lng == '')) {
         $client_ip = $_SERVER['REMOTE_ADDR'];
-        //vienna ip:  178.115.61.237
-        //gaza   ip:  158.140.97.248
+        //$vienna_ip=178.115.61.237
+        //$gaza_ip=158.140.97.248
         // $client_ip = '158.140.97.248';
         $request = file_get_contents("http://ip-api.com/json/$client_ip");
         $ip = json_decode($request);
         $user_lat = isset($ip->lat) ? trim($ip->lat) : 0;
         $user_lng = isset($ip->lon) ? trim($ip->lon) : 0;
-       
-}  
+}
 $perPage = 5;
 // Calculate Total pages
 $countquery = "SELECT count(*) 
@@ -45,8 +47,12 @@ $total_pages = ceil($total_results / $perPage);
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $starting_limit = ($page - 1) * $perPage;
 // Query to fetch 
-$query = "SELECT  C.name company_name, 
+$query = "SELECT  
+                  C.name company_name, 
+                  C.email company_email, 
+                  C.id company_id , 
                   P.title post_title , 
+                  P.id post_id , 
                   P.salary post_salary, 
                   P.skill post_skill, 
                   P.city post_city,
@@ -76,7 +82,6 @@ $query .= " and WC.country = 'Austria'";
 $query .= " LIMIT $starting_limit,$perPage";
 // Fetch all users for current page
 $result = $con->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-// order is important
 header('content-type: application/json');
 print_r(json_encode([
         'result' => $result,

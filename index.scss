@@ -9,9 +9,13 @@
    font-family: 'Roboto', sans-serif;
  }
 
+ p {
+   font-size: 1.4rem;
+ }
+
  .navbar {
    .nav-logo {
-     width: $navbarLogoWidth;
+     //  width: $navbarLogoWidth;
      height: $navbarLogoHeight;
    }
 
@@ -341,6 +345,18 @@
        height: 250px;
        object-fit: cover;
        border-radius: 10px;
+
+       @media only screen and (max-width: 650px) {
+         width: 190px;
+       }
+
+       @media only screen and (max-width: 460px) {
+         width: 100px;
+       }
+
+       @media only screen and (max-width: 400px) {
+         width: 80px;
+       }
      }
 
      .training-companies-page-main-image {
@@ -352,10 +368,6 @@
      }
 
      .section-2 {
-       img {
-         max-width: 100%;
-       }
-
        .width-250px {
          width: 250px;
        }

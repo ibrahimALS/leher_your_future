@@ -9,6 +9,10 @@ let filterCnameInput = document.querySelector("#filter-company-input");
 let filterSkillInput = document.querySelector("#filter-skill-input");
 let filterRadius = document.querySelector("#filter-radius-input");
 let geolocationModal = new bootstrap.Modal(document.getElementById('geolocation-modal'))
+let applyModal = document.getElementById('apply-for-post-job-modal');
+let applyForPostJobModal = new bootstrap.Modal(applyModal, { backdrop: 'static' })
+let applyNowButton = document.querySelector("#apply-now");
+
 const spinner = `
 <div class="spinner-border" role="status">
   <span class="visually-hidden">Loading...</span>
@@ -41,12 +45,16 @@ function getSearchEndpoint() {
 }
 
 
-
+document.querySelectorAll('input[id^="filter-"]').forEach(input => {
+  input.onkeyup = function(event) {
+    filterButton.click()
+  }
+})
 
 
 window.rebuildTable = function () {
   container.innerHTML = spinner;
-  scrollIntoFirstResult()
+  // scrollIntoFirstResult()
   fetch(getSearchEndpoint()).then(response => response.json()).then(response => {
     container.innerHTML = buildTable(response.cols, response.result, response.pages)
   })
@@ -74,7 +82,7 @@ filterButton.onclick = function () {
   window.filter_skill = filterSkillInput.value;
   window.search_page = 1;
   container.innerHTML = spinner;
-  scrollIntoFirstResult()
+  // scrollIntoFirstResult()
   fetch(getSearchEndpoint()).then(response => response.json()).then(response => {
     container.innerHTML = buildTable(response.cols, response.result, response.pages)
     window.history.pushState({}, document.title, window.location.pathname);
@@ -86,13 +94,14 @@ function buildTable(cols = [], data = [], pages = 0,) {
   let table = `<div>`;
   data.forEach(post => {
     table += `<div class="d-flex text-start my-5 gap-2 post-search-result-row shadow p-2">`
-    table += `<img width='80px' hieght='80px' src="/${post.post_image}" />`
+    table += `<img   src="/${post.post_image}" />`
     table += `<div class="">`
     table += `<p><strong>Title: </strong>${post.post_title}</p>`
     table += `<p><strong>Company: </strong>${post.company_name}</p>`
     table += `<p><strong>Skill: </strong>${post.post_skill}</p>`
     table += `<p><strong>City: </strong>${post.post_city}</p>`
     table += `<p><strong>Distance: </strong><strong class='text-success'>${post.distance}km</strong></p>`
+    table += `<div><button onclick='window.applyForJobPost(${JSON.stringify(post)})' class='btn btn-success rounded-5  ' style='width:10rem'><strong>Apply</strong></button></div>`
     table += '</div>'
     table += '</div>'
   })
@@ -154,6 +163,77 @@ function getLocation() {
 
 getLocation();
 
+
+window.applyForJobPost = function (post) {
+  window.applyPost = post;
+  applyForPostJobModal.show();
+
+}
+function bytesToMegabytes(bytes) {
+  var megabytes = bytes / (1024 * 1024);
+  return megabytes.toFixed(2);
+}
+document.querySelectorAll(".apply-jobs-form-input-file").forEach(input => {
+  input.onchange = function (event) {
+    const filesize = input.files.item(0).size;
+    if (bytesToMegabytes(filesize) > 5) {
+      alert("File too big");
+      input.value = '';
+    } else {
+    }
+  }
+})
+//init mail 
+let initMail = null;
+//apply now 
+applyNowButton.onclick = function (event) {
+  applyNowButton.setAttribute("disabled", 'true');
+  let inputs = applyModal.querySelectorAll("input, select");
+  let formData = new FormData();
+  inputs.forEach(i => {
+    if (['text', 'email', 'number'].includes(i.type) || i.nodeName == 'SELECT') {
+      formData.append(i.name, i.value)
+    } else if (['file'].includes(i.type)) {
+      if (i.files.item(0)) formData.append(i.name, i.files.item(0));
+    } else if (['radio'].includes(i.type)) {
+      i.checked ? formData.append(i.name, i.value) : null;
+    }
+  })
+  formData.append("========COMPANY=======", "========EMAIL=======")
+  formData.append("Email", window.applyPost.company_email);
+  let checkbox = applyModal.querySelector('input[type="checkbox"]');
+  if (!checkbox.checked) {
+    checkbox.classList.add("is-invalid")
+    applyNowButton.removeAttribute('disabled')
+    return;
+  } else {
+    checkbox.classList.remove("is-invalid")
+  }
+  const mailEndPoint = 'api/mail.php';
+  function sendMail() {
+    axios
+      .post(mailEndPoint, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+      .then(res => {
+        // alert("Sent")
+        applyForPostJobModal.hide();
+        applyNowButton.removeAttribute('disabled')
+      })
+      .catch(error => {
+        applyNowButton.removeAttribute('disabled')
+        alert("Somthing Wrong!")
+      })
+  }
+
+  if (initMail == null) {
+    initMail = window.open(mailEndPoint, '_blank', 'width=500,height=100%')
+    setTimeout(() => {
+      initMail.close();
+      sendMail();
+    }, 1000)
+  } else {
+    sendMail();
+  }
+}
 
 
 
